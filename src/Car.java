@@ -38,32 +38,98 @@ public class Car {
     public boolean turnOn() {
         return state = true;
     }
+
+
     public boolean turnOff() {
-        if(state == false) {
+        if(state == false ) {
             System.out.println("it's already turn offed");;
         }
         return state = false;
     }
 
+
+
     // ainda tenho que implementar mais coisa
     public void accelerate() {
         if(gear == 0 || state == false)  {
-            System.out.println("You can't accelerate");
-        }else {
-             speed += 1;
+            System.out.println("You can't accelerate, turn on the car or up down gear!");
+        }if (gear == 1) {
+            if(speed < 20 ) {
+                speed += 1;
+            }else {
+                System.out.println("Limite de velocidade atingida!");
+            }
+        }if (gear == 2) {
+            if(speed < 40) {
+                speed += 1;
+            }else {
+                System.out.println("Limite de velocidade atingida!");
+            }
+        }if (gear == 3) {
+            if(speed < 60) {
+                speed += 1;
+            }else {
+                System.out.println("Limite de velocidade atingida!");
+            }
+        }if (gear == 4) {
+            if(speed < 80) {
+                speed += 1;
+            }else {
+                System.out.println("Limite de velocidade atingida!");
+            }
+        }if (gear == 5) {
+            if(speed < 100) {
+                speed += 1;
+            }else {
+                System.out.println("Limite de velocidade atingida!");
+            }
+        }if (gear == 6) {
+            if(speed < 120) {
+                speed += 1;
+            }else {
+                System.out.println("Limite de velocidade atingida!");
+            }
+        }if(speed > 120) {
+            System.out.println("You can't accelerate!");
         }
-
     }
 
-    public int decelerate() {
-        return speed = -1;
+
+
+    public void decelerate() {
+        if(state == false) {
+            System.out.println("You can't decelarate, turn on the car!");
+        }else {
+            speed = -1;
+        }
     }
 
-    public int sGear() {
-        return gear = 1;
+    public void sGear() {
+        if(!state) {
+            gear += 1;
+        }else {
+            System.out.println("You can't decelarate!!");
+        }
     }
 
-    public int verifySpeed() {
-        return speed;
+
+    public String verifySpeed() {
+        if (state) {
+            return String.valueOf(speed);
+        } else {
+            return "O carro está desligado";
+        }
     }
+
+    public void sDirection() {
+        if(speed >= 1 && speed <= 40) {
+            System.out.println("Virou para um lado!");
+        } else if (speed < 1) {
+            System.out.println("Velocidade muito baixa!");
+        }else {
+            System.out.println("Velocidade muito alta!");
+        }
+    }
+
+
 }
